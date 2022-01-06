@@ -1,0 +1,6 @@
+name: BlockAll
+version: '${project.version}'
+main: com.henryserver.plugins.blockall.BlockAll
+api-version: 1.18
+authors: [ motsuni ]
+description: salvage mineall into v1.18.1
