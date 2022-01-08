@@ -26,13 +26,13 @@ public final class BlockAll extends JavaPlugin implements Listener {
     public void onEnable() {
         // Plugin startup logic
         getServer().getPluginManager().registerEvents(this, this);
-        getLogger().info("プラグインが開始しました");
+        getLogger().info("BlockAllが読み込まれました。");
     }
 
     @Override
     public void onDisable() {
         // Plugin shutdown logic
-        getLogger().info("プラグインが停止しました");
+        getLogger().info("BlockAllが停止しました");
     }
 
     @EventHandler
@@ -43,15 +43,13 @@ public final class BlockAll extends JavaPlugin implements Listener {
         Block block = e.getBlock();
         Player player = e.getPlayer();
 
-        getLogger().info("Player has broken: " + e.getBlock());
-
         Material[] acceptBlocks = {
-                Material.ACACIA_LOG,
-                Material.BIRCH_LOG,
-                Material.JUNGLE_LOG,
-                Material.DARK_OAK_LOG,
-                Material.OAK_LOG,
-                Material.SPRUCE_LOG,
+            Material.ACACIA_LOG,
+            Material.BIRCH_LOG,
+            Material.JUNGLE_LOG,
+            Material.DARK_OAK_LOG,
+            Material.OAK_LOG,
+            Material.SPRUCE_LOG,
         };
 
         if (!Arrays.asList(acceptBlocks).contains(block.getType())) return;
@@ -80,7 +78,6 @@ public final class BlockAll extends JavaPlugin implements Listener {
         Collection<ItemStack> droppedItemStack = new ArrayList<>(drops);
 
         block.setType(Material.AIR);
-        Collection<ItemStack> itemStack = null;
 
         // next to X
         Collection<ItemStack> itemStack1 = breakChainedBlocks(world, targetMaterial, (blockPosition.clone()).add( 1, 0, 0));
